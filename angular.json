@@ -23,9 +23,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../oscar/node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "../oscar/src/assets/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+                  "../oscar/node_modules/jquery/dist/jquery.min.js",
+                  "../oscar/node_modules/jquery-dotdotdot/src/jquery.dotdotdot.min.js",
+                  "../oscar/node_modules/bootstrap/dist/js/bootstrap.min.js"
+                  
+              
+              ]
           },
           "configurations": {
             "production": {

@@ -1,0 +1,90 @@
+<div class="col-lg-12" [@fundido]>
+    <!--agregamos enlace con clase de boton
+    y con [@marcar] mandamos llamar la animacion creada bajo ese nombre y ponemos el evento de click y su metodo
+    -->
+    <a class="boton-activo btn btn-success" 
+        [@marcar]="status" (click)="cambiarEstado(status)">
+        <!--condicion dependiendo el status mostrara un texto distinto -->
+        <span *ngIf="status=='inactive'">Boton inactivo</span>
+        <span *ngIf="status=='active'">Boton activo</span>
+    </a>
+    
+    <hr>
+    <h4>Animaciones css3</h4>
+    <!-- agregamos un enlace para ejemplo de transciones desde el styles.css usando su clase-->
+    <a class="boton-transiciones">Transiciones</a>
+    <!--el div que limpia ideal para agregar otro div -->
+    <div class="clearfix"></div>
+    <!--agregamos la caja y la animacion va en el styles -->
+    <div class="caja-animada">
+        
+    </div>
+    <hr>
+    <h4>Utiliza jquery dentro de angular</h4>
+    <!--creamos un boton para el jquery y le asignamos una clase-->
+    <button id="botonjq">Mostrar texto</button>
+    <!--creamos un parrafo para el jquery y le asignamos una clase-->
+    <p id="textojq">
+        We use cookies to provide and improve our services. By using our site, you consent to cookies. Learn more. Dismiss notice
+    </p>
+    <!--div de la caja con texto se le asigna una clase para usar la librearia jquery.dotdotdot
+    que pone puntos suspensivos dentro de un cuadro con texto-->
+    <div id="caja" style="border:1px solid black; width: 150px; height:50px">
+    We use cookies to provide and improve our services. By using our site, you consent to cookies. Learn more. Dismiss notice    
+    </div>
+    <!--
+    Para agregar el editor de texto y su funcion que va capturando lo ingresado
+    para usar esa directiva se importo desde app.module
+    -->
+    <editor [(ngModel)]="textoEditor" (onKeyUp)="verEditor()"></editor>
+    
+    
+    
+    
+    <hr>
+    padre
+    <h1>Esta es la tienda </h1>
+        <ul>
+        <li>camisa</li>
+        <li> gorra</li>
+        </ul>
+    <hr/>
+    <p>
+    Padre
+    Nombre del parque:
+    <input type="text" [(ngModel)]="nombreDelParque" (keyup)="mostrarNombre()"/>
+    </p>
+    <p>
+    Resultado: {{nombreDelParque}}
+    </p>
+    <!--  solo aparece cuando existe el objeto miparque-->
+    <div *ngIf=miParque>
+        <h4>Datos del parque desde el hijo</h4>
+        <ol>
+            <!-- va mostrando los atributos del objeto miParque que le pasaron los datos desde el evento -->
+            <li>{{miParque.nombre}}</li>
+            <li>{{miParque.metros}}</li>
+            <li>{{miParque.vegetacion}}</li>
+            <li>{{miParque.abierto}}</li>
+        </ol>
+    </div>
+    <hr>
+    <p>
+    <parques    [nombre]="'nombre de parque por default'" 
+                [metros-cuadrados]="666"
+                (pasameLosDatos)="verDatosParque($event)"
+                >
+                </parques>
+    </p>
+    
+    <p *ngIf=nombreDelParque>
+    hijo
+    <!-- se agrega el output pasameLosDatos que ejecuta el metodo de verDatosParue
+    y le pasa los datos el evento $event -->
+    <parques    [nombre]="nombreDelParque" 
+                [metros-cuadrados]="345"
+                (pasameLosDatos)="verDatosParque($event)"
+                >
+                </parques>
+    </p>
+</div>

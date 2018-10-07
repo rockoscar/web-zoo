@@ -1,0 +1,29 @@
+<!--creamos una barra lateral -->
+<div class="col-lg-4">
+    <!--mostramos el titulo -->
+    <h3>{{ title }}</h3>
+    <!--le damos una clase  -->
+    <div class="sidebar-admin" data-example-id="sample-nav-stacked">
+        <!--creamos una lista ordenanada y su clase -->
+        <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+            <!--elemntos de la lista con role (quien sabe que es
+            y el router es para que se prendan cuando esten seleccionados
+            -->
+            <li role="presentation" [routerLinkActive]="['active']">
+                <a [routerLink]="['mostrar']" >Mostrar</a>
+            </li>
+            <li role="presentation" [routerLinkActive]="['active']">
+                <a [routerLink]="['editar']">Editar</a>
+            </li>
+            <li role="presentation" [routerLinkActive]="['active']">
+                <a [routerLink]="['agregar']">Agregar</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--maquetamos la seccion donde se muestran las rutas-->
+<div class="col-lg-8">
+    <!--se agrega la directiva que va mostrando las rutas hijas-->
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,144 @@
+.navigation.col-lg-12{
+    margin-top: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.jumbotron{
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #ccc;
+}
+
+/*pone la sombra naranja abajo del menu seleccionado*/
+.navbar-nav .active{
+    /*se el pone importan para que lo tome como hay mas reglas especificas, las de abajo
+    se la saltan sin el importan*/
+    border-bottom: 3px solid orange !important;
+}
+
+/*para que no cambien de tamaño los objetos del menu*/
+.navbar-default .navbar-nav>li>a{
+    transition: all 300ms;
+    border-bottom: 3px solid transparent; 
+}
+
+/*efecto al pasar el mouse sobre objetos del menu*/
+.navbar-default .navbar-nav>li>a:hover{
+    transition: all 300ms;
+    border-bottom: 3px solid orange; 
+}
+
+/*
+agregamos la clase y sus propiedades
+*/
+.boton-transiciones{
+    padding: 10px;
+    background: red;
+    color: white;
+    border-radius: 20px;
+    border:4px solid blue;
+    /*
+    para que no se vea un cambio brusco, usamos transition donde vas indicando que propiedad y su
+    tiempo de transiscion. Tambien puede usarse all y afecta todas propiedas y solo asignas un tiempo
+    transition: all 2s;
+    */
+    transition: border 2s, border-radius 500ms, background 5s;
+    display: block;
+    width: 100px; 
+}
+
+/*
+agregamos la clase hover, cuando pasas el puntero sobre el elemento
+y sus propiedades
+*/
+.boton-transiciones:hover{
+    text-decoration: none;
+    color: white;
+    border-radius: 2px;
+    background: #ccc;
+    border: 1px solid red;
+    
+}
+
+.caja-animada{
+    margin-top: 15px;
+    background: green;
+    border: 5px solid black;
+    width: 200px;
+    height: 200px;
+    /*
+    la propiedad animation nos permite usar los keyframes, primero asiganos su nombre
+    y atributos generales como duration  que se haga infinita la animacion
+    
+    animation-name: rotacion;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    */
+}
+
+/*
+primer tipo de kf usando su nombre y su inicio from y como va temrinar to
+dentro de esos segmentos se agregan las propiedades deseadas
+*/
+@keyframes deslizamiento1{
+    from { 
+        margin-left: 0px; 
+    }
+    to {
+        margin-left: 400px;
+        background:red;
+    }
+}
+
+/*
+segundo tipo, en lugar de tener solo dos estados, tomamos el porcentaje del tiempo 
+para dividir la animacion
+*/
+
+@keyframes deslizamiento{
+    0% { 
+        margin-left: 0px; 
+    }
+    25% {
+        margin-left: 400px;
+        background:red;
+        
+    }
+    50%{
+        border-radius: 1000px;
+    }
+    75%{
+        margin-left: 0;
+        background:yellow;
+        border-radius: 0px;
+    }
+    100%{
+         background:green;
+    }
+}
+
+/*
+usamos una propiedad de los kf que es transform y su metodo rotate que es como queda
+la pagina de ejemplo y usamos otro nombre que tambien se declaro previamente
+*/
+
+@keyframes rotacion{
+    0% { 
+        margin-left: 0px;
+        transform: rotate(0deg); 
+    }
+    50% {
+        margin-left: 600px;
+        transform: rotate(360deg); 
+    }
+    100%{
+        margin-left: 0px;
+        transform: rotate(0deg); 
+    }
+}
+
+
+
